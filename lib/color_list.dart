@@ -27,11 +27,14 @@ class ColorList extends ConsumerWidget {
         foregroundColor: Colors.black,
         title: const Text('Colors'),
       ),
-      body: ListView(
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: _colors.map((color) {
-          return ColorItem(
-            color: color,
-            onPressed: (color) => onPressed(ref, color),
+          return Expanded(
+            child: ColorItem(
+              color: color,
+              onPressed: (color) => onPressed(ref, color),
+            ),
           );
         }).toList(),
       ),
