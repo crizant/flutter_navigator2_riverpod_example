@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:navigator2_riverpod_example/service_locator.dart';
-import 'color_detail.dart';
 
 class ColorList extends ConsumerWidget {
   const ColorList({Key? key}) : super(key: key);
