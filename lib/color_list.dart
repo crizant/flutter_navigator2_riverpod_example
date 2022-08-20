@@ -5,6 +5,16 @@ import 'package:navigator2_riverpod_example/service_locator.dart';
 class ColorList extends ConsumerWidget {
   const ColorList({Key? key}) : super(key: key);
 
+  static final List<Color> _colors = [
+    Colors.red,
+    Colors.orange,
+    Colors.yellow,
+    Colors.green,
+    Colors.cyan,
+    Colors.blue,
+    Colors.purple,
+  ];
+
   void onPressed(WidgetRef ref, Color color) {
     ref.read(activeColorProvider.notifier).state = color;
   }
@@ -18,50 +28,12 @@ class ColorList extends ConsumerWidget {
         title: const Text('Colors'),
       ),
       body: ListView(
-        children: [
-          ColorItem(
-            color: Colors.red,
-            onPressed: (color) {
-              onPressed(ref, color);
-            },
-          ),
-          ColorItem(
-            color: Colors.orange,
-            onPressed: (color) {
-              onPressed(ref, color);
-            },
-          ),
-          ColorItem(
-            color: Colors.yellow,
-            onPressed: (color) {
-              onPressed(ref, color);
-            },
-          ),
-          ColorItem(
-            color: Colors.green,
-            onPressed: (color) {
-              onPressed(ref, color);
-            },
-          ),
-          ColorItem(
-            color: Colors.cyan,
-            onPressed: (color) {
-              onPressed(ref, color);
-            },
-          ),
-          ColorItem(
-            color: Colors.blue,
-            onPressed: (color) {
-              onPressed(ref, color);
-            },
-          ),
-          ColorItem(
-            color: Colors.purple,
-            onPressed: (color) {
-              onPressed(ref, color);
-            },
-          ),
-        ],
+        children: _colors.map((color) {
+          return ColorItem(
+            color: color,
+            onPressed: (color) => onPressed(ref, color),
+          );
+        }).toList(),
       ),
     );
   }
@@ -82,9 +54,7 @@ class ColorItem extends StatelessWidget {
     return Material(
       color: color,
       child: InkWell(
-        onTap: () {
-          onPressed(color);
-        },
+        onTap: () => onPressed(color),
         child: const SizedBox(
           height: 45.0,
         ),
