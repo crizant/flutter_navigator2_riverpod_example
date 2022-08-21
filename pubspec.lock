@@ -123,6 +123,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.3"
+  riverpod_consumer_router_delegate:
+    dependency: "direct main"
+    description:
+      name: riverpod_consumer_router_delegate
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.9.0"
   sky_engine:
     dependency: transitive
     description: flutter
